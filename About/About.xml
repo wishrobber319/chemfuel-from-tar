@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ModMetaData>
+    <packageId>wishRobber.chemfuelfromtar</packageId>
+    <name>Chemfuel from Tar</name>
+    <author>wishRobber</author>
+    <description>Reworks Vanilla Factions Expanded - Medieval 2's alchemy-workbench chemfuel recipes for a Medieval Overhaul tar economy:
+- Removes "Make chemfuel from organics".
+- Changes "Make chemfuel from wood" into "Make chemfuel from tar", consuming Medieval Overhaul's tar (DankPyon_Tar, gathered at the mine shaft) instead of wood logs. Amounts are unchanged (70 tar -> 25 chemfuel).
+
+Requires both Vanilla Factions Expanded - Medieval 2 (the recipes) and Medieval Overhaul (the tar item); does nothing without both.</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>OskarPotocki.VFE.Medieval2</packageId>
+            <displayName>Vanilla Factions Expanded - Medieval 2</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/3444347874</steamWorkshopUrl>
+        </li>
+        <li>
+            <packageId>DankPyon.Medieval.Overhaul</packageId>
+            <displayName>Medieval Overhaul</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/3219596926</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>OskarPotocki.VFE.Medieval2</li>
+        <li>DankPyon.Medieval.Overhaul</li>
+        <li>joeownage.overlap.remover</li>
+    </loadAfter>
+</ModMetaData>

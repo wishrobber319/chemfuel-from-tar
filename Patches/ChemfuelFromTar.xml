@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Rework VFEM2's alchemy-workbench chemfuel recipes for a tar economy:
+	- remove "Make chemfuel from organics" (VFEM2_Make_ChemfuelFromOrganics)
+	- turn "Make chemfuel from wood" (VFEM2_Make_ChemfuelFromWood) into "make chemfuel from tar",
+	  swapping its WoodLog ingredient for Medieval Overhaul's tar (DankPyon_Tar).
+
+	PatchOperationFindMod is OR across listed mods, so VFEM2 and MO are nested to require BOTH
+	(the recipe is VFEM2's, the tar item is MO's).
+-->
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Medieval 2</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Medieval Overhaul</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+
+					<!-- Drop "Make chemfuel from organics". -->
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromOrganics"]</xpath>
+					</li>
+
+					<!-- "Make chemfuel from wood" -> "make chemfuel from tar". -->
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/label</xpath>
+						<value>
+							<label>refine chemfuel from tar</label>
+						</value>
+					</li>
+
+					<!-- 50 tar in -> 25 chemfuel out (product count unchanged). -->
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/ingredients/li/count</xpath>
+						<value>
+							<count>50</count>
+						</value>
+					</li>
+
+					<!-- Halve the work: 3000 (shown as 50) -> 1500 (shown as 25). -->
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/workAmount</xpath>
+						<value>
+							<workAmount>1500</workAmount>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/description</xpath>
+						<value>
+							<description>Make a batch of chemfuel by refining gathered tar.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/jobString</xpath>
+						<value>
+							<jobString>Refining chemfuel from tar.</jobString>
+						</value>
+					</li>
+
+					<!-- Swap the WoodLog ingredient for DankPyon_Tar (both filters). -->
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/ingredients/li/filter/thingDefs/li[text()="WoodLog"]</xpath>
+						<value>
+							<li>DankPyon_Tar</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]/fixedIngredientFilter/thingDefs/li[text()="WoodLog"]</xpath>
+						<value>
+							<li>DankPyon_Tar</li>
+						</value>
+					</li>
+
+					<!-- Gate the recipe behind Medieval Overhaul's Tar research, so it shows as an
+					     unlock on that research's card. (DankPyon_Tar here is the ResearchProjectDef.) -->
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs/RecipeDef[defName="VFEM2_Make_ChemfuelFromWood"]</xpath>
+						<value>
+							<researchPrerequisite>DankPyon_Tar</researchPrerequisite>
+						</value>
+					</li>
+
+				</operations>
+			</match>
+		</match>
+	</Operation>
+
+</Patch>
