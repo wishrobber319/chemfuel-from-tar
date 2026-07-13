@@ -3,11 +3,7 @@
     <packageId>wishRobber.chemfuelfromtar</packageId>
     <name>Chemfuel from Tar</name>
     <author>wishRobber</author>
-    <description>Reworks Vanilla Factions Expanded - Medieval 2's alchemy-workbench chemfuel recipes for a Medieval Overhaul tar economy:
-- Removes "Make chemfuel from organics".
-- Changes "Make chemfuel from wood" into "Make chemfuel from tar", consuming Medieval Overhaul's tar (DankPyon_Tar, gathered at the mine shaft) instead of wood logs. Amounts are unchanged (70 tar -> 25 chemfuel).
-
-Requires both Vanilla Factions Expanded - Medieval 2 (the recipes) and Medieval Overhaul (the tar item); does nothing without both.</description>
+    <description>Fuel your medieval colony with tar instead of wood. Reworks Vanilla Factions Expanded – Medieval 2's chemfuel recipes to burn Medieval Overhaul's tar (gathered at the mine shaft) for a cohesive medieval fuel economy.</description>
     <supportedVersions>
         <li>1.6</li>
     </supportedVersions>
