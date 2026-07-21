@@ -1,0 +1,9 @@
+[b]Burn tar, not your forests.[/b] Reworks Vanilla Factions Expanded - Medieval 2's chemfuel recipes so they consume Medieval Overhaul's tar instead of wood, giving your medieval colony a fuel economy that fits the era.
+
+[hr][/hr]
+[b]What's inside[/b]
+[list]
+[*][b]Tar-fueled chemfuel.[/b] The chemfuel recipes are retuned to burn tar gathered at the mine shaft, so you stop feeding logs into an industrial-feeling process.
+[*][b]One cohesive fuel loop.[/b] Tar becomes the backbone of your medieval chemfuel, leaving wood for building and heating.
+[*][b]Requires the mods it patches.[/b] Needs Medieval Overhaul and Vanilla Factions Expanded - Medieval 2, and simply does nothing without them.
+[/list]
